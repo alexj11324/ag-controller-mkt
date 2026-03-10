@@ -1,0 +1,10 @@
+{
+    "name": "antigravity-bridge",
+    "description": "Control Antigravity IDE Agent from Claude Code. Discover running Antigravity instances, create chat sessions, send tasks, and orchestrate agent work—all through MCP tools or the /antigravity-bridge:run command.",
+    "version": "1.0.0",
+    "author": {
+        "name": "alexjiang"
+    },
+    "repository": "https://github.com/alexjiang/antigravity-bridge",
+    "license": "MIT"
+}
