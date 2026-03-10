@@ -1,10 +1,10 @@
 {
-  "name": "antigravity-bridge-plugin",
+  "name": "ag-controller",
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
   "bin": {
-    "antigravity-bridge": "./server.js"
+    "ag-controller": "./server.js"
   },
   "scripts": {
     "start": "node server.js"

@@ -1,6 +1,6 @@
 {
     "mcpServers": {
-        "antigravity-bridge": {
+        "ag-controller": {
             "command": "node",
             "args": [
                 "server.js"

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Antigravity Bridge — MCP Server
+ * AG-Controller — MCP Server
  *
  * Exposes Antigravity IDE control as MCP tools for Claude Code.
  * Uses @modelcontextprotocol/sdk for the MCP protocol,
@@ -309,7 +309,7 @@ async function getClient(workspace) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const server = new McpServer({
-    name: "antigravity-bridge",
+    name: "ag-controller",
     version: "1.0.0",
 });
 

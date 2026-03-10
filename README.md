@@ -1,4 +1,4 @@
-# Antigravity Bridge
+# AG-Controller
 
 > Claude Code plugin to control Antigravity IDE Agent via MCP.
 
@@ -8,8 +8,8 @@
 
 ```bash
 # 在 Claude Code 中
-/plugin marketplace add alexjiang/antigravity-bridge
-/plugin install antigravity-bridge@alexjiang/antigravity-bridge
+/plugin marketplace add alexj11324/AG-Controller
+/plugin install ag-controller@alexj11324/AG-Controller
 ```
 
 本地测试：
@@ -34,7 +34,7 @@ claude --plugin-dir .
 
 ### Slash Command
 
-- `/antigravity-bridge:run` — 交互式执行：发现 → 创建会话 → 发送任务 → 返回结果
+- `/ag-controller:run` — 交互式执行：发现 → 创建会话 → 发送任务 → 返回结果
 
 ### Skill
 
@@ -53,8 +53,6 @@ Claude Code:
 ```
 
 ## CLI 独立使用
-
-也可以直接在终端使用 CLI 版本：
 
 ```bash
 node antigravity-bridge.js discover
