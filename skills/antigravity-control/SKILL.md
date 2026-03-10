@@ -27,9 +27,11 @@ ls ~/.claude/plugins/installed/*/antigravity-bridge.js 2>/dev/null
 
 ## Exact Commands (DO NOT modify these names)
 
+> **WARNING: You MUST execute ALL 4 steps in order. Skipping `discover` WILL cause 500 errors.**
+
 ```bash
-# Step 1: Discover Antigravity (MUST run first)
-node <CLI> discover --workspace /path/to/project
+# Step 1: MANDATORY — Discover Antigravity (ALWAYS run this first, NEVER skip)
+node <CLI> discover
 
 # Step 2: Create session (command is "start-cascade", NOT "create" or "create-cascade")
 node <CLI> start-cascade
