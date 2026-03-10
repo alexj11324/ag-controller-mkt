@@ -648,8 +648,22 @@ async function getClientConfig(args) {
 async function createConnectedClient(args) {
     const config = await getClientConfig(args);
     const client = new AntigravityClient(config);
-    await client.connect();
-    return client;
+    try {
+        await client.connect();
+        return client;
+    } catch (err) {
+        // Auto-rediscover on connection failure (stale cache)
+        if (err.message && (err.message.includes("ECONNREFUSED") || err.message.includes("Connection timeout"))) {
+            process.stderr.write("[auto-rediscover] Cached connection failed, re-discovering...\n");
+            try { await fs.promises.unlink(CACHE_FILE); } catch { }
+            const freshConfig = await discoverAntigravity(args.workspace);
+            await saveCachedConfig(freshConfig);
+            const freshClient = new AntigravityClient(freshConfig);
+            await freshClient.connect();
+            return freshClient;
+        }
+        throw err;
+    }
 }
 
 const HELP_TEXT = `
