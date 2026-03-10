@@ -1,22 +1,39 @@
 ---
-description: Run an Antigravity IDE Agent task. Use when you want to send a coding task to the Antigravity Agent and wait for completion.
+description: Send a coding task to the Antigravity IDE Agent and wait for completion.
 ---
 
-## Antigravity Bridge — Run Task
+## AG-Controller: Run Task
 
-Discover the running Antigravity instance, create a cascade, send a task, and return results.
+Use the `antigravity-bridge.js` CLI to delegate a task to the running Antigravity IDE Agent.
 
 ### Steps
 
-1. Call the `antigravity_discover` MCP tool to find the running Antigravity IDE.
-2. Call `antigravity_start_cascade` with `mode: "Fast"` (or `"Planning"` for complex tasks).
-3. Ask the user what task they want Antigravity to perform.
-4. Call `antigravity_send_and_wait` with the cascade ID and user's message.
-5. Present the result to the user.
-6. Call `antigravity_delete` to clean up the cascade.
+1. Find the CLI path:
+   ```bash
+   find ~/.claude/plugins -name "antigravity-bridge.js" 2>/dev/null
+   ```
 
-### Tips
+2. Discover the Antigravity instance:
+   ```bash
+   node <CLI_PATH> discover
+   ```
 
-- Use `model: "Gemini 3 Flash"` for speed, `"Claude Sonnet 4.6 (Thinking)"` for quality.
-- For long tasks, use `--message-file` to load instructions from a file.
-- The `send_and_wait` tool uses content-stability polling (default: 7 stable polls = done).
+3. Create a cascade:
+   ```bash
+   node <CLI_PATH> start-cascade
+   ```
+   Parse the JSON output to get `cascadeId`.
+
+4. Ask the user what task they want Antigravity to perform.
+
+5. Send and wait:
+   ```bash
+   node <CLI_PATH> send-and-wait --cascade <cascadeId> --message "<user's task>"
+   ```
+
+6. Clean up:
+   ```bash
+   node <CLI_PATH> delete --cascade <cascadeId>
+   ```
+
+7. Report the result to the user.
