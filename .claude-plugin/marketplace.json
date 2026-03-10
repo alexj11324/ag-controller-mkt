@@ -1,0 +1,13 @@
+{
+    "name": "AG-Controller",
+    "description": "Marketplace for AG-Controller — control Antigravity IDE Agent from Claude Code",
+    "version": "1.0.0",
+    "plugins": [
+        {
+            "name": "ag-controller",
+            "description": "Control Antigravity IDE Agent from Claude Code via MCP tools. Discover instances, create sessions, send tasks, orchestrate agent work.",
+            "version": "1.0.0",
+            "path": "."
+        }
+    ]
+}
